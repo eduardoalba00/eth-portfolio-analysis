@@ -8,7 +8,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
 	boxShadow: "none",
 	textAlign: "center",
 	padding: theme.spacing(5, 0),
-	color: "white",
+	color: theme.palette.primary.contrastText,
 	backgroundColor: theme.palette.primary.darker,
 	borderRadius: theme.shape.borderRadiusMd,
 }));

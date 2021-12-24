@@ -18,10 +18,10 @@ const MainStyle = styled("div")(({ theme }) => ({
 	flexGrow: 1,
 	overflow: "auto",
 	minHeight: "100%",
-	paddingTop: "1.5rem",
+	paddingTop: "2.5rem",
 	paddingBottom: theme.spacing(10),
 	[theme.breakpoints.up("lg")]: {
-		paddingTop: "1.5rem",
+		paddingTop: "2.5rem",
 		paddingLeft: theme.spacing(2),
 		paddingRight: theme.spacing(2),
 	},
