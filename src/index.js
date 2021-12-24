@@ -9,13 +9,13 @@ import store from "./store";
 
 ReactDOM.render(
 	<HelmetProvider>
-		<BrowserRouter>
-			<Provider store={store}>
-				<DAppProvider config={{}}>
+		<Provider store={store}>
+			<DAppProvider config={{}}>
+				<BrowserRouter>
 					<App />
-				</DAppProvider>
-			</Provider>
-		</BrowserRouter>
+				</BrowserRouter>
+			</DAppProvider>
+		</Provider>
 	</HelmetProvider>,
 
 	document.getElementById("root")

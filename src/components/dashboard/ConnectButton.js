@@ -1,6 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEthers, useEtherBalance } from "@usedapp/core";
+import { formatEther } from "@ethersproject/units";
 // theme
 import palette from "../../theme/palette";
 import shape from "../../theme/shape";
@@ -8,8 +9,14 @@ import shape from "../../theme/shape";
 import Identicon from "../Identicon";
 // redux
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {
+	setAddress,
+	setBalance,
+	setTotalFloor,
+} from "../../store/Actions/WalletAction";
 // util
-import IntitializeWallet from "../../utils/initialize-wallet";
+import { getFloorTotal } from "../../utils/get-assets";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -52,6 +59,8 @@ const ConnectButtonStyle = styled(Button)({
 // ----------------------------------------------------------------------
 
 export default function ConnectButton() {
+	const dispatch = useDispatch();
+
 	// access browser wallet info
 	const { activateBrowserWallet, account } = useEthers();
 	const etherBalance = useEtherBalance(account);
@@ -61,9 +70,21 @@ export default function ConnectButton() {
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
 
 	// initializing global redux states for wallet
-	if (account && etherBalance) {
-		IntitializeWallet(account, etherBalance);
-	}
+	useEffect(() => {
+		if (account) {
+			dispatch(setAddress(account));
+
+			if (etherBalance) {
+				dispatch(
+					setBalance(parseFloat(formatEther(etherBalance)).toFixed(4))
+				);
+			}
+
+			getFloorTotal(account).then((floor_total) => {
+				dispatch(setTotalFloor(floor_total));
+			});
+		}
+	}, [account, etherBalance]);
 
 	const connectButton = (
 		<ConnectButtonStyle variant="subtitle2" onClick={activateBrowserWallet}>
