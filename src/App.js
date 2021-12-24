@@ -6,11 +6,11 @@ import ScrollToTop from "./components/ScrollToTop";
 import DashboardLayout from "./layouts/dashboard";
 
 export default function App() {
-  return (
-    <ThemeConfig>
-      <ScrollToTop />
-      <GlobalStyles />
-      <DashboardLayout />
-    </ThemeConfig>
-  );
+	return (
+		<ThemeConfig>
+			<ScrollToTop />
+			<GlobalStyles />
+			<DashboardLayout />
+		</ThemeConfig>
+	);
 }

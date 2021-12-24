@@ -8,15 +8,15 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 ReactDOM.render(
-    <HelmetProvider>
-        <BrowserRouter>
-            <Provider store={store}>
-                <DAppProvider config={{}}>
-                    <App />
-                </DAppProvider>
-            </Provider>
-        </BrowserRouter>
-    </HelmetProvider>,
+	<HelmetProvider>
+		<BrowserRouter>
+			<Provider store={store}>
+				<DAppProvider config={{}}>
+					<App />
+				</DAppProvider>
+			</Provider>
+		</BrowserRouter>
+	</HelmetProvider>,
 
-    document.getElementById("root")
+	document.getElementById("root")
 );
