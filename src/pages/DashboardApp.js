@@ -6,6 +6,8 @@ import palette from "../theme/palette";
 import Page from "../components/Page";
 import WalletBalance from "../components/dashboard/WalletBalance";
 import ConnectButton from "../components/dashboard/ConnectButton";
+import FloorTotal from "../components/dashboard/FloorTotal";
+import BalanceFloorSum from "../components/dashboard/BalanceFloorSum";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -54,23 +56,14 @@ export default function DashboardApp() {
 				</HeaderContainer>
 
 				<Grid container spacing={3}>
-					<Grid item xs={12} sm={6} md={3}>
+					<Grid item xs={12} sm={6} md={4}>
 						<WalletBalance />
 					</Grid>
-					<Grid item xs={12} sm={6} md={3}>
-						<WalletBalance />
+					<Grid item xs={12} sm={6} md={4}>
+						<FloorTotal />
 					</Grid>
-					<Grid item xs={12} sm={6} md={3}>
-						<WalletBalance />
-					</Grid>
-					<Grid item xs={12} sm={6} md={3}>
-						<WalletBalance />
-					</Grid>
-					<Grid item xs={12} sm={8} md={8}>
-						<WalletBalance />
-					</Grid>
-					<Grid item xs={12} sm={4} md={4}>
-						<WalletBalance />
+					<Grid item xs={12} sm={6} md={4}>
+						<BalanceFloorSum />
 					</Grid>
 				</Grid>
 			</Container>

@@ -2,14 +2,18 @@ import { Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
-//theme
+import { useEffect } from "react";
+// theme
 import palette from "../../theme/palette";
 import shape from "../../theme/shape";
-//components
+// components
 import Identicon from "../Identicon";
-//redux
+// redux
 import setAddress, { setBalance } from "../../store/Actions/WalletAction";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, componentDidMount } from "react-redux";
+import { setTotalFloor } from "../../store/Actions/WalletAction";
+// util
+import { getFloorTotal } from "../../utils/get-assets";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -63,12 +67,21 @@ export default function ConnectButton() {
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
 
 	// setting global redux states
-	if (account) dispatch(setAddress(account));
-	if (etherBalance)
-		dispatch(setBalance(parseFloat(formatEther(etherBalance)).toFixed(3)));
+	if (account && etherBalance) {
+		dispatch(setAddress(account));
+		dispatch(setBalance(parseFloat(formatEther(etherBalance)).toFixed(4)));
+		getFloorTotal(account).then((floor_total) => {
+			dispatch(setTotalFloor(floor_total));
+		});
+	}
+
+	// connecting to browser wallet on button click
+	function handleConnectWallet() {
+		activateBrowserWallet();
+	}
 
 	const connectButton = (
-		<ConnectButtonStyle variant="subtitle2" onClick={activateBrowserWallet}>
+		<ConnectButtonStyle variant="subtitle2" onClick={handleConnectWallet}>
 			CONNECT WALLET
 		</ConnectButtonStyle>
 	);
@@ -97,8 +110,8 @@ export default function ConnectButton() {
 
 	return (
 		<div>
-			{!account && connectButton}
-			{account && accountAddress}
+			{!wallet_address && connectButton}
+			{wallet_address && accountAddress}
 		</div>
 	);
 }
