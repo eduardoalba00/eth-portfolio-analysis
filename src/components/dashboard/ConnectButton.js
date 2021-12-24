@@ -1,19 +1,15 @@
 import { Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEthers, useEtherBalance } from "@usedapp/core";
-import { formatEther } from "@ethersproject/units";
-import { useEffect } from "react";
 // theme
 import palette from "../../theme/palette";
 import shape from "../../theme/shape";
 // components
 import Identicon from "../Identicon";
 // redux
-import setAddress, { setBalance } from "../../store/Actions/WalletAction";
-import { useDispatch, useSelector, componentDidMount } from "react-redux";
-import { setTotalFloor } from "../../store/Actions/WalletAction";
+import { useDispatch, useSelector } from "react-redux";
 // util
-import { getFloorTotal } from "../../utils/get-assets";
+import IntitializeWallet from "../../utils/initialize-wallet";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -56,8 +52,6 @@ const ConnectButtonStyle = styled(Button)({
 // ----------------------------------------------------------------------
 
 export default function ConnectButton() {
-	const dispatch = useDispatch();
-
 	// access browser wallet info
 	const { activateBrowserWallet, account } = useEthers();
 	const etherBalance = useEtherBalance(account);
@@ -66,22 +60,13 @@ export default function ConnectButton() {
 	const wallet_address = useSelector((state) => state.Wallet.address);
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
 
-	// setting global redux states
+	// initializing global redux states for wallet
 	if (account && etherBalance) {
-		dispatch(setAddress(account));
-		dispatch(setBalance(parseFloat(formatEther(etherBalance)).toFixed(4)));
-		getFloorTotal(account).then((floor_total) => {
-			dispatch(setTotalFloor(floor_total));
-		});
-	}
-
-	// connecting to browser wallet on button click
-	function handleConnectWallet() {
-		activateBrowserWallet();
+		IntitializeWallet(account, etherBalance);
 	}
 
 	const connectButton = (
-		<ConnectButtonStyle variant="subtitle2" onClick={handleConnectWallet}>
+		<ConnectButtonStyle variant="subtitle2" onClick={activateBrowserWallet}>
 			CONNECT WALLET
 		</ConnectButtonStyle>
 	);

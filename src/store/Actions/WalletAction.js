@@ -22,5 +22,3 @@ export const setTotalFloor = (total_floor) => {
 		payload: total_floor,
 	};
 };
-
-export default setAddress;
