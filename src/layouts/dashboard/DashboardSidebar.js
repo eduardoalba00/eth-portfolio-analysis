@@ -1,10 +1,5 @@
 // material
-import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-//components
-import ConnectButton from "../../components/dashboard/ConnectButton";
-//redux
-import { useSelector } from "react-redux";
 
 // ----------------------------------------------------------------------
 const DRAWER_WIDTH = 220;
@@ -16,7 +11,8 @@ const RootStyle = styled("div")(({ theme }) => ({
 	},
 	alignItems: "center",
 	borderRight: "1px solid",
-	borderColor: theme.palette.grey[300],
+	borderColor: theme.palette.primary.darker,
+	backgroundColor: theme.palette.primary.darker,
 }));
 
 const AccountStyle = styled("div")(({ theme }) => ({
@@ -24,17 +20,11 @@ const AccountStyle = styled("div")(({ theme }) => ({
 	alignItems: "center",
 	padding: theme.spacing(2, 2.5),
 	borderRadius: theme.shape.borderRadiusSm,
-	backgroundColor: theme.palette.grey[200],
+	backgroundColor: theme.palette.primary.dark,
 	overflow: "hidden",
 }));
 // ----------------------------------------------------------------------
 
 export default function DashboardSidebar() {
-	return (
-		<RootStyle>
-			<Box sx={{ my: 3, mx: 2.5 }}>
-				<ConnectButton />
-			</Box>
-		</RootStyle>
-	);
+	return <RootStyle></RootStyle>;
 }

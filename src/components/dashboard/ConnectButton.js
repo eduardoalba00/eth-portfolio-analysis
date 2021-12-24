@@ -1,22 +1,55 @@
-import { Button, Typography, Box } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEthers, useEtherBalance } from "@usedapp/core";
+import { formatEther } from "@ethersproject/units";
+//theme
 import palette from "../../theme/palette";
 import shape from "../../theme/shape";
-import { formatEther } from "@ethersproject/units";
+//components
 import Identicon from "../Identicon";
 //redux
 import setAddress, { setBalance } from "../../store/Actions/WalletAction";
 import { useDispatch, useSelector } from "react-redux";
 
-const WalletButton = styled(Button)({
-	backgroundColor: palette.grey[800],
+// ----------------------------------------------------------------------
+const WalletButtonContainer = styled("div")({
+	display: "flex",
+	alignItems: "center",
+	backgroundColor: palette.secondary.main,
 	borderRadius: shape.borderRadiusSm,
-	margin: "1px",
-	overflow: "hidden",
-	whiteSpace: "nowrap",
-	textOverflow: "ellipsis",
 });
+
+const WalletButton = styled(Button)({
+	backgroundColor: palette.primary.darker,
+	border: "1px solid transparent",
+	borderRadius: shape.borderRadiusSm,
+	overflow: "hidden",
+	boxShadow: "none",
+	"&:hover": {
+		backgroundColor: palette.primary.darker,
+		border: "1px solid",
+		borderColor: palette.secondary.main,
+		boxShadow: "none",
+	},
+});
+
+const ConnectButtonStyle = styled(Button)({
+	backgroundColor: palette.secondary.main,
+	color: palette.primary.darker,
+	border: "1px solid transparent",
+	borderRadius: shape.borderRadiusSm,
+	overflow: "hidden",
+	boxShadow: "none",
+	"&:hover": {
+		backgroundColor: palette.primary.main,
+		color: palette.secondary.contrastText,
+		border: "1px solid",
+		borderColor: palette.secondary.main,
+		boxShadow: "none",
+	},
+});
+
+// ----------------------------------------------------------------------
 
 export default function ConnectButton() {
 	const dispatch = useDispatch();
@@ -35,24 +68,22 @@ export default function ConnectButton() {
 		dispatch(setBalance(parseFloat(formatEther(etherBalance)).toFixed(3)));
 
 	const connectButton = (
-		<Button variant="subtitle1" onClick={activateBrowserWallet}>
+		<ConnectButtonStyle variant="subtitle2" onClick={activateBrowserWallet}>
 			CONNECT WALLET
-		</Button>
+		</ConnectButtonStyle>
 	);
 
 	const accountAddress = (
-		<Box
-			display="flex"
-			alignItems="center"
-			backgroundColor={palette.grey[300]}
-			borderRadius={shape.borderRadiusSm}
-			mx={2}
-		>
-			<Typography variant="subtitle2" color="black" mx={2}>
+		<WalletButtonContainer>
+			<Typography
+				variant="subtitle2"
+				color={palette.primary.darker}
+				mx={1}
+			>
 				{wallet_balance} ETH
 			</Typography>
 			<WalletButton onClick={activateBrowserWallet} variant="contained">
-				<Typography variant="subtitle2" color="white" mx={2}>
+				<Typography variant="subtitle2" color="white" mr={1}>
 					{wallet_address &&
 						`${wallet_address.slice(0, 6)}...${wallet_address.slice(
 							wallet_address.length - 4,
@@ -61,13 +92,13 @@ export default function ConnectButton() {
 				</Typography>
 				<Identicon />
 			</WalletButton>
-		</Box>
+		</WalletButtonContainer>
 	);
 
 	return (
 		<div>
-			{!wallet_address && connectButton}
-			{wallet_address && accountAddress}
+			{!account && connectButton}
+			{account && accountAddress}
 		</div>
 	);
 }

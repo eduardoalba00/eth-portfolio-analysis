@@ -3,12 +3,11 @@ import { useEthers } from "@usedapp/core";
 import styled from "@emotion/styled";
 import Jazzicon from "@metamask/jazzicon";
 
+// ----------------------------------------------------------------------
 const StyledIdenticon = styled("div")(({ theme }) => ({
-	height: "2rem",
-	width: "2rem",
-	borderRadius: "1.125rem",
-	backgroundColor: "black",
+	display: "flex",
 }));
+// ----------------------------------------------------------------------
 
 export default function Identicon() {
 	const ref = useRef();
@@ -18,7 +17,7 @@ export default function Identicon() {
 		if (account && ref.current) {
 			ref.current.innerHTML = "";
 			ref.current.appendChild(
-				Jazzicon(32, parseInt(account.slice(2, 10)))
+				Jazzicon(16, parseInt(account.slice(2, 10), 16))
 			);
 		}
 	}, [account]);
