@@ -17,6 +17,7 @@ import {
 } from "../../store/Actions/WalletAction";
 // util
 import { getFloorTotal } from "../../utils/get-assets";
+import { getCollectionStats } from "../../utils/get-assets";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -68,6 +69,10 @@ export default function ConnectButton() {
 	//global state for the address and balance of a wallet
 	const wallet_address = useSelector((state) => state.Wallet.address);
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
+
+	getCollectionStats(account).then((stats) => {
+		console.log(stats);
+	});
 
 	// initializing global redux states for wallet
 	useEffect(() => {
