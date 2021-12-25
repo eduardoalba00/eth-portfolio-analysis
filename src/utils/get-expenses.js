@@ -49,17 +49,17 @@ export async function getDailyExpenditure(addr) {
 		const currTransaction = transactions[i];
 		const time = computeTime(currTransaction["timeStamp"]);
 		const time_elements = time.split(" ");
-		const tsx_day = time_elements[2];
+		const tsx_day = parseInt(time_elements[2]);
 		const tsx_month = time_elements[1];
 
-		if (tsx_day == today && tsx_month == month) {
+		if (tsx_day === today && tsx_month === month) {
 			dailyTransactions.push(currTransaction);
 		}
 	}
 
 	for (let i = 0; i < dailyTransactions.length; i++) {
 		const tsx = dailyTransactions[i];
-		if (tsx["from"].toLowerCase() == addr.toLowerCase()) {
+		if (tsx["from"].toLowerCase() === addr.toLowerCase()) {
 			dailyExpenditure +=
 				parseInt(tsx["cumulativeGasUsed"]) + parseInt(tsx["value"]);
 		}
@@ -89,17 +89,17 @@ export async function getDailyIncome(addr) {
 		const currTransaction = transactions[i];
 		const time = computeTime(currTransaction["timeStamp"]);
 		const time_elements = time.split(" ");
-		const tsx_day = time_elements[2];
+		const tsx_day = parseInt(time_elements[2]);
 		const tsx_month = time_elements[1];
 
-		if (tsx_day == today && tsx_month == month) {
+		if (tsx_day === today && tsx_month === month) {
 			dailyTransactions.push(currTransaction);
 		}
 	}
 
 	for (let i = 0; i < dailyTransactions.length; i++) {
 		const tsx = dailyTransactions[i];
-		if (tsx["to"].toLowerCase() == addr.toLowerCase()) {
+		if (tsx["to"].toLowerCase() === addr.toLowerCase()) {
 			dailyIncome +=
 				parseInt(tsx["cumulativeGasUsed"]) + parseInt(tsx["value"]);
 		}
