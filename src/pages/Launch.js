@@ -95,6 +95,7 @@ export default function Launch() {
 									style={{
 										borderRadius: shape.borderRadiusMd,
 									}}
+									alt="DashboardImg"
 								/>
 							</ImageWrapper>
 						</FadeIn>
