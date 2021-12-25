@@ -4,6 +4,7 @@ import {
 	SET_TOTAL_FLOOR,
 	SET_TOTAL_BALANCE_ETH,
 	SET_TOTAL_BALANCE_USD,
+	SET_DAILY_EXPENDITURE,
 } from "../constants/action-types";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
 	floor_total: 0,
 	total_balance_eth: 0,
 	total_balance_usd: 0,
+	daily_expenditure: 0,
 };
 
 function WalletReducer(state = initialState, action) {
@@ -40,6 +42,11 @@ function WalletReducer(state = initialState, action) {
 			return {
 				...state,
 				total_balance_usd: action.payload,
+			};
+		case SET_DAILY_EXPENDITURE:
+			return {
+				...state,
+				daily_expenditure: action.payload,
 			};
 		default:
 			return state;

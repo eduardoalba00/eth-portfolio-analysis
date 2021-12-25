@@ -1,7 +1,8 @@
 // material
 import { styled } from "@mui/material/styles";
 import { Card, Typography } from "@mui/material";
-// theme
+// redux
+import { useSelector } from "react-redux";
 
 // ----------------------------------------------------------------------
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -22,6 +23,9 @@ const Column = styled("div")(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function DailyExpenditure() {
+	const daily_expenditure = useSelector(
+		(state) => state.Wallet.daily_expenditure
+	);
 	return (
 		<RootStyle>
 			<Column>
@@ -30,7 +34,7 @@ export default function DailyExpenditure() {
 					Last 24 Hours
 				</Typography>
 				<Typography variant="h3" sx={{ pt: 1 }}>
-					0.3221
+					{daily_expenditure.toFixed(4)}
 				</Typography>
 				<Typography variant="subtitle1" sx={{ opacity: "50%" }}>
 					ETH

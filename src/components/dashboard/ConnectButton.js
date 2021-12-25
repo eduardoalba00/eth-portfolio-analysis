@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import {
 	setAddress,
 	setBalance,
+	setDailyExpenditure,
 	setTotalBalanceETH,
 	setTotalBalanceUSD,
 	setTotalFloor,
@@ -20,6 +21,7 @@ import {
 // util
 import { getFloorTotal } from "../../utils/get-assets";
 import { getEthPriceUSD } from "../../utils/get-eth-price";
+import { getDailyExpenditure } from "../../utils/get-expenses";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -94,6 +96,9 @@ export default function ConnectButton() {
 						setTotalBalanceUSD(data * (balance + floor_total))
 					);
 				});
+			});
+			getDailyExpenditure(account).then((data) => {
+				dispatch(setDailyExpenditure(data));
 			});
 		}
 	}, [account, etherBalance, dispatch]);
