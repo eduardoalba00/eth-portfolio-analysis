@@ -1,4 +1,3 @@
-import { Link as RouterLink } from "react-router-dom";
 // material
 import { Box, Typography, Link } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -7,7 +6,7 @@ import { Icon } from "@iconify/react";
 import palette from "../../theme/palette";
 
 // ----------------------------------------------------------------------
-const DRAWER_WIDTH = 280;
+const DRAWER_WIDTH = 250;
 
 const RootStyle = styled("div")(({ theme }) => ({
 	[theme.breakpoints.up("lg")]: {
@@ -16,30 +15,28 @@ const RootStyle = styled("div")(({ theme }) => ({
 	},
 	alignItems: "center",
 	borderRight: "1px solid",
-	borderColor: theme.palette.primary.darker,
-	backgroundColor: theme.palette.primary.darker,
-	borderRadius: theme.shape.borderRadiusMd,
-	margin: theme.spacing(2, 2.5),
+	borderColor: theme.palette.primary.lighter,
+	backgroundColor: "white",
 }));
 
 const AccountStyle = styled("div")(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
-	padding: theme.spacing(2, 2.5),
+	padding: theme.spacing(1, 1),
 	borderRadius: theme.shape.borderRadiusSm,
-	backgroundColor: theme.palette.primary.light,
+	backgroundColor: theme.palette.info.main,
 	overflow: "hidden",
 }));
 // ----------------------------------------------------------------------
 
-export default function DashboardColumn() {
+export default function DashboardSidebar() {
 	return (
 		<RootStyle>
 			<Box sx={{ my: 5, mx: 2.5 }}>
-				<Link underline="none" component={RouterLink} to="#">
+				<Link underline="none" href="http://twitter.com/BlocklameEth">
 					<AccountStyle>
 						<Icon
-							icon="mdi-light:home"
+							icon="mdi:twitter"
 							width="3rem"
 							style={{ color: "white" }}
 						/>
@@ -48,11 +45,12 @@ export default function DashboardColumn() {
 								variant="subtitle2"
 								color={palette.primary.contrastText}
 							>
-								Eduardo Alba
+								Blocklame.eth
 							</Typography>
 							<Typography
 								variant="body2"
-								color={palette.primary.lighter}
+								color={palette.primary.contrastText}
+								sx={{ opacity: "75%" }}
 							>
 								Founder
 							</Typography>
