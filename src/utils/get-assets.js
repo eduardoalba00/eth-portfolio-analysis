@@ -51,6 +51,8 @@ export async function getCollectionStats(addr) {
 		const avg_price = collection_stats["average_price"];
 		const one_day_change = collection_stats["one_day_change"];
 		const one_day_volume = collection_stats["one_day_volume"];
+		const image_url = collection_data["collection"]["image_url"];
+		const os_url = "https://opensea.io/collection/" + collection_slug;
 
 		let collection = {
 			name,
@@ -58,6 +60,8 @@ export async function getCollectionStats(addr) {
 			avg_price,
 			one_day_change,
 			one_day_volume,
+			image_url,
+			os_url,
 		};
 		collections.push(collection);
 	}

@@ -8,6 +8,7 @@ import WalletBalance from "../components/dashboard/WalletBalance";
 import ConnectButton from "../components/dashboard/ConnectButton";
 import FloorTotal from "../components/dashboard/FloorTotal";
 import BalanceFloorSum from "../components/dashboard/BalanceFloorSum";
+import CollectionsSummary from "../components/dashboard/CollectionsSummary";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -64,6 +65,9 @@ export default function DashboardApp() {
 					</Grid>
 					<Grid item xs={12} sm={6} md={4}>
 						<BalanceFloorSum />
+					</Grid>
+					<Grid item xs={12} sm={6} lg={8}>
+						<CollectionsSummary />
 					</Grid>
 				</Grid>
 			</Container>

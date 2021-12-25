@@ -32,7 +32,6 @@ const MainStyle = styled("div")(({ theme }) => ({
 export default function DashboardLayout() {
 	return (
 		<RootStyle>
-			<DashboardSidebar />
 			<MainStyle>
 				<DashboardApp />
 			</MainStyle>
