@@ -13,10 +13,13 @@ import { useEffect } from "react";
 import {
 	setAddress,
 	setBalance,
+	setTotalBalanceETH,
+	setTotalBalanceUSD,
 	setTotalFloor,
 } from "../../store/Actions/WalletAction";
 // util
 import { getFloorTotal } from "../../utils/get-assets";
+import { getEthPriceUSD } from "../../utils/get-eth-price";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -78,17 +81,19 @@ export default function ConnectButton() {
 
 	// initializing global redux states for wallet
 	useEffect(() => {
-		if (account) {
+		if (account && etherBalance) {
+			let balance = parseFloat(formatEther(etherBalance));
 			dispatch(setAddress(account));
-
-			if (etherBalance) {
-				dispatch(
-					setBalance(parseFloat(formatEther(etherBalance)).toFixed(4))
-				);
-			}
+			dispatch(setBalance(balance));
 
 			getFloorTotal(account).then((floor_total) => {
 				dispatch(setTotalFloor(floor_total));
+				dispatch(setTotalBalanceETH(balance + floor_total));
+				getEthPriceUSD().then((data) => {
+					dispatch(
+						setTotalBalanceUSD(data * (balance + floor_total))
+					);
+				});
 			});
 		}
 	}, [account, etherBalance, dispatch]);

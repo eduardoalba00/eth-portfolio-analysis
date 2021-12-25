@@ -1,4 +1,3 @@
-import { useState } from "react";
 // material
 import { styled } from "@mui/material/styles";
 import { Card, Grid, Typography } from "@mui/material";
@@ -6,8 +5,6 @@ import { useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 // theme
 import palette from "../../theme/palette";
-// utils
-import { getEthPriceUSD } from "../../utils/get-eth-price";
 
 // ----------------------------------------------------------------------
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -29,40 +26,38 @@ const Column = styled("div")(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BalanceCard() {
-	const [totalBalanceUSD, setTotalBalanceUSD] = useState(0);
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
 	const floor_total = useSelector((state) => state.Wallet.floor_total);
-	const balance_floor_sum = (
-		floor_total + parseFloat(wallet_balance)
-	).toFixed(4);
-
-	getEthPriceUSD().then((data) => {
-		setTotalBalanceUSD((data * balance_floor_sum).toFixed(2));
-	});
+	const total_balance_ETH = useSelector(
+		(state) => state.Wallet.total_balance_eth
+	);
+	const total_balance_USD = useSelector(
+		(state) => state.Wallet.total_balance_usd
+	);
 
 	const items = [
 		{
 			icon: "fa-solid:wallet",
 			title: "Wallet Balance",
-			value: wallet_balance,
+			value: wallet_balance.toFixed(4),
 			currency: "ETH",
 		},
 		{
 			icon: "cib:ethereum",
 			title: "Floor Total",
-			value: floor_total,
+			value: floor_total.toFixed(4),
 			currency: "ETH",
 		},
 		{
 			icon: "fluent:money-calculator-24-filled",
 			title: "Total Balance",
-			value: balance_floor_sum,
+			value: total_balance_ETH.toFixed(4),
 			currency: "ETH",
 		},
 		{
 			icon: "ant-design:dollar-circle-filled",
 			title: "Total Balance",
-			value: totalBalanceUSD,
+			value: total_balance_USD.toFixed(2),
 			currency: "USD",
 		},
 	];
