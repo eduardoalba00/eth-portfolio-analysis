@@ -20,7 +20,8 @@ import { getFloorTotal } from "../../utils/get-assets";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
-	display: "flex",
+	display: "inline-flex",
+	overflow: "hidden",
 	alignItems: "center",
 	backgroundColor: palette.secondary.main,
 	border: "1px solid transparent",

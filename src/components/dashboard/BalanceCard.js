@@ -1,3 +1,4 @@
+import { useState } from "react";
 // material
 import { styled } from "@mui/material/styles";
 import { Card, Grid, Typography } from "@mui/material";
@@ -5,6 +6,8 @@ import { useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 // theme
 import palette from "../../theme/palette";
+// utils
+import { getEthPriceUSD } from "../../utils/get-eth-price";
 
 // ----------------------------------------------------------------------
 const RootStyle = styled(Card)(({ theme }) => ({
@@ -26,27 +29,41 @@ const Column = styled("div")(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function BalanceCard() {
+	const [totalBalanceUSD, setTotalBalanceUSD] = useState(0);
 	const wallet_balance = useSelector((state) => state.Wallet.balance);
 	const floor_total = useSelector((state) => state.Wallet.floor_total);
 	const balance_floor_sum = (
 		floor_total + parseFloat(wallet_balance)
-	).toFixed(3);
+	).toFixed(4);
+
+	getEthPriceUSD().then((data) => {
+		setTotalBalanceUSD((data * balance_floor_sum).toFixed(2));
+	});
 
 	const items = [
 		{
 			icon: "fa-solid:wallet",
 			title: "Wallet Balance",
 			value: wallet_balance,
+			currency: "ETH",
 		},
 		{
 			icon: "cib:ethereum",
 			title: "Floor Total",
 			value: floor_total,
+			currency: "ETH",
 		},
 		{
 			icon: "fluent:money-calculator-24-filled",
-			title: "Balance Plus Floor Total",
+			title: "Total Balance",
 			value: balance_floor_sum,
+			currency: "ETH",
+		},
+		{
+			icon: "ant-design:dollar-circle-filled",
+			title: "Total Balance",
+			value: totalBalanceUSD,
+			currency: "USD",
 		},
 	];
 	return (
@@ -54,7 +71,7 @@ export default function BalanceCard() {
 			<Grid container spacing={2}>
 				{items.map((item, index) => {
 					return (
-						<Grid item xs={12} sm={6} md={4} key={index}>
+						<Grid item xs={12} sm={6} md={3} key={index}>
 							<Column>
 								<Icon icon={item.icon} width="3rem" />
 								<Typography
@@ -71,7 +88,7 @@ export default function BalanceCard() {
 									variant="subtitle1"
 									color={palette.secondary.darker}
 								>
-									ETH
+									{item.currency}
 								</Typography>
 							</Column>
 						</Grid>

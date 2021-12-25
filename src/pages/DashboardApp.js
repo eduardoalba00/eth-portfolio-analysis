@@ -12,47 +12,52 @@ import Expenditure from "../components/dashboard/Expenditure";
 import { getCurrentDate } from "../utils/get-current-date";
 
 // ----------------------------------------------------------------------
-const HeaderContainer = styled("div")({
-	display: "flex",
-	alignItems: "center",
-	paddingBottom: "3rem",
-});
 
-const TitleContainer = styled("div")({
-	display: "flex",
-	flexDirection: "column",
-});
+const TitleWrapper = styled("div")(({ theme }) => ({
+	[theme.breakpoints.down("sm")]: {
+		textAlign: "center",
+	},
+	[theme.breakpoints.up("md")]: {
+		textAlign: "left",
+	},
+}));
 
-const ButtonContainer = styled("div")({
-	marginLeft: "auto",
-});
+const ButtonWrapper = styled("div")(({ theme }) => ({
+	[theme.breakpoints.down("xs")]: {
+		textAlign: "center",
+	},
+	[theme.breakpoints.up("md")]: {
+		textAlign: "right",
+	},
+}));
+
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
 	const current_date = getCurrentDate();
-
 	return (
 		<Page title="Dashboard | Ethereum Portfolio">
 			<Container maxWidth="xl">
-				<HeaderContainer>
-					<TitleContainer>
-						<Typography variant="h3" color={"black"}>
-							Hi, Welcome back
-						</Typography>
-						<Typography
-							variant="subtitle1"
-							color={palette.primary.light}
-							fontWeight={500}
-						>
-							{current_date}
-						</Typography>
-					</TitleContainer>
-					<ButtonContainer>
-						<ConnectButton />
-					</ButtonContainer>
-				</HeaderContainer>
-
 				<Grid container spacing={4}>
+					<Grid item xs={12} sm={12} md={6}>
+						<TitleWrapper>
+							<Typography variant="h3" color={"black"}>
+								Hi, Welcome back
+							</Typography>
+							<Typography
+								variant="subtitle1"
+								color={palette.primary.light}
+								fontWeight={500}
+							>
+								{current_date}
+							</Typography>
+						</TitleWrapper>
+					</Grid>
+					<Grid item xs={12} sm={12} md={6}>
+						<ButtonWrapper>
+							<ConnectButton />
+						</ButtonWrapper>
+					</Grid>
 					<Grid item xs={12} sm={12} md={12}>
 						<BalanceCard />
 					</Grid>
