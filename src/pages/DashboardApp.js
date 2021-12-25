@@ -36,13 +36,13 @@ const ButtonWrapper = styled("div")(({ theme }) => ({
 export default function DashboardApp() {
 	const current_date = getCurrentDate();
 	return (
-		<Page title="Dashboard | Ethereum Portfolio">
+		<Page title="Blocklame Interface">
 			<Container maxWidth="xl">
 				<Grid container spacing={4}>
 					<Grid item xs={12} sm={12} md={6}>
 						<TitleWrapper>
 							<Typography variant="h3" color={"black"}>
-								Hi, Welcome back
+								Blocklame Dashboard
 							</Typography>
 							<Typography
 								variant="subtitle1"

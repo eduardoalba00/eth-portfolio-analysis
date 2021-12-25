@@ -111,7 +111,7 @@ export default function ConnectButton() {
 				color={palette.primary.darker}
 				mx={1}
 			>
-				{wallet_balance} ETH
+				{wallet_balance.toFixed(4)} ETH
 			</Typography>
 			<WalletButton onClick={activateBrowserWallet} variant="contained">
 				<Typography variant="subtitle2" color="white" mr={1}>
