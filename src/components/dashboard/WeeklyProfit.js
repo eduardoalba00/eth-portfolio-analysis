@@ -9,7 +9,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
 	display: "flex",
 	justifyContent: "space-between",
 	padding: theme.spacing(3, 3),
-	backgroundColor: theme.palette.error.lighter,
+	backgroundColor: theme.palette.info.lighter,
 	borderRadius: theme.shape.borderRadiusMd,
 }));
 
@@ -21,16 +21,16 @@ const Column = styled("div")(({ theme }) => ({
 }));
 // ----------------------------------------------------------------------
 
-export default function Expenditure() {
+export default function WeeklyProfit() {
 	return (
 		<RootStyle>
 			<Column>
-				<Typography variant="h5">Expenditure</Typography>
+				<Typography variant="h5">Weekly Profit</Typography>
 				<Typography variant="subtitle2" sx={{ opacity: "50%" }}>
-					Last 24 Hours
+					Last 7 Days
 				</Typography>
 				<Typography variant="h3" sx={{ pt: 1 }}>
-					0.3221
+					0.1221
 				</Typography>
 				<Typography variant="subtitle1" sx={{ opacity: "50%" }}>
 					ETH

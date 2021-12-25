@@ -21,11 +21,11 @@ const Column = styled("div")(({ theme }) => ({
 }));
 // ----------------------------------------------------------------------
 
-export default function Profit() {
+export default function DailyProfit() {
 	return (
 		<RootStyle>
 			<Column>
-				<Typography variant="h5">Profit</Typography>
+				<Typography variant="h5">Daily Profit</Typography>
 				<Typography variant="subtitle2" sx={{ opacity: "50%" }}>
 					Last 24 Hours
 				</Typography>
