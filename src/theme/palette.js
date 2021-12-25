@@ -34,12 +34,11 @@ const PRIMARY = {
 	main: "#1E1E1E",
 	darker: "#181818",
 	contrastText: "#fff",
-	beige: "#FAF8F4",
-	beigeDark: "#9C9C9B",
 };
 const SECONDARY = {
-	main: "#D0A028",
-	contrastText: "#fff",
+	main: "#FAF8F4",
+	darker: "#9C9C9B",
+	contrastText: "#181818",
 };
 const INFO = {
 	lighter: "#D0F2FF",

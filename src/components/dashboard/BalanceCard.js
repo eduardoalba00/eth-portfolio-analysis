@@ -12,7 +12,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
 	display: "flex",
 	justifyContent: "space-between",
 	padding: theme.spacing(3, 3),
-	backgroundColor: theme.palette.primary.beige,
+	backgroundColor: theme.palette.secondary.main,
 	borderRadius: theme.shape.borderRadiusMd,
 }));
 
@@ -57,7 +57,7 @@ export default function BalanceCard() {
 						<Icon icon={item.icon} width="3rem" />
 						<Typography
 							variant="subtitle1"
-							color={palette.primary.beigeDark}
+							color={palette.secondary.darker}
 							sx={{ pt: 3 }}
 						>
 							{item.title}
@@ -65,7 +65,7 @@ export default function BalanceCard() {
 						<Typography variant="h3">{item.value}</Typography>
 						<Typography
 							variant="subtitle1"
-							color={palette.primary.beigeDark}
+							color={palette.secondary.darker}
 						>
 							ETH
 						</Typography>

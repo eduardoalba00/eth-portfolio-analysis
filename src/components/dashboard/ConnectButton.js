@@ -22,12 +22,12 @@ import { getFloorTotal } from "../../utils/get-assets";
 const WalletButtonContainer = styled("div")({
 	display: "flex",
 	alignItems: "center",
-	backgroundColor: palette.primary.beige,
+	backgroundColor: palette.secondary.main,
 	border: "1px solid transparent",
 	borderRadius: shape.borderRadiusSm,
 	"&:hover": {
 		border: "1px solid",
-		borderColor: palette.primary.main,
+		borderColor: palette.primary.darker,
 		boxShadow: "none",
 	},
 });
@@ -47,17 +47,17 @@ const WalletButton = styled(Button)({
 });
 
 const ConnectButtonStyle = styled(Button)({
-	backgroundColor: palette.secondary.main,
-	color: palette.primary.darker,
+	backgroundColor: palette.primary.darker,
+	color: palette.primary.contrastText,
 	border: "1px solid transparent",
 	borderRadius: shape.borderRadiusSm,
 	overflow: "hidden",
 	boxShadow: "none",
 	"&:hover": {
-		backgroundColor: palette.primary.main,
+		backgroundColor: palette.secondary.main,
 		color: palette.secondary.contrastText,
 		border: "1px solid",
-		borderColor: palette.secondary.main,
+		borderColor: palette.primary.main,
 		boxShadow: "none",
 	},
 });
