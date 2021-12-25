@@ -65,12 +65,56 @@ export async function getDailyExpenditure(addr) {
 		}
 	}
 
-	return parseFloat(formatEther(dailyExpenditure));
+	dailyExpenditure = parseFloat(formatEther(dailyExpenditure));
+	return dailyExpenditure;
 }
 
-export async function getDailyIncome(addr) {}
+export async function getDailyIncome(addr) {
+	let dailyTransactions = [];
+	let dailyIncome = 0;
+	const url =
+		"https://api.etherscan.io/api?module=account" +
+		"&action=txlist" +
+		"&address=" +
+		addr +
+		"&sort=desc" +
+		"&apikey=" +
+		API_KEY;
+	const options = { method: "GET" };
+	const response = await fetch(url, options);
+	const data = await response.json();
+	const transactions = data["result"];
 
-export async function getDailyProfit(addr) {}
+	for (let i = 0; i < transactions.length; i++) {
+		const currTransaction = transactions[i];
+		const time = computeTime(currTransaction["timeStamp"]);
+		const time_elements = time.split(" ");
+		const tsx_day = time_elements[2];
+		const tsx_month = time_elements[1];
+
+		if (tsx_day == today && tsx_month == month) {
+			dailyTransactions.push(currTransaction);
+		}
+	}
+
+	for (let i = 0; i < dailyTransactions.length; i++) {
+		const tsx = dailyTransactions[i];
+		if (tsx["to"].toLowerCase() == addr.toLowerCase()) {
+			dailyIncome +=
+				parseInt(tsx["cumulativeGasUsed"]) + parseInt(tsx["value"]);
+		}
+	}
+
+	dailyIncome = dailyIncome / Math.pow(10, 18);
+	return dailyIncome;
+}
+
+export async function getDailyProfit(addr) {
+	return (
+		(await getDailyIncome(addr)).toFixed(4) -
+		(await getDailyExpenditure(addr)).toFixed(4)
+	);
+}
 
 export async function getWeeklyExpenditure(addr) {}
 

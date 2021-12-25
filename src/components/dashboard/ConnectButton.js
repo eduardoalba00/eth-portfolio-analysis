@@ -17,11 +17,17 @@ import {
 	setTotalBalanceETH,
 	setTotalBalanceUSD,
 	setTotalFloor,
+	setDailyIncome,
+	setDailyProfit,
 } from "../../store/Actions/WalletAction";
 // util
 import { getFloorTotal } from "../../utils/get-assets";
 import { getEthPriceUSD } from "../../utils/get-eth-price";
-import { getDailyExpenditure } from "../../utils/get-expenses";
+import {
+	getDailyExpenditure,
+	getDailyIncome,
+	getDailyProfit,
+} from "../../utils/get-expenses";
 
 // ----------------------------------------------------------------------
 const WalletButtonContainer = styled("div")({
@@ -97,8 +103,20 @@ export default function ConnectButton() {
 					);
 				});
 			});
+
 			getDailyExpenditure(account).then((data) => {
+				// console.log(data);
 				dispatch(setDailyExpenditure(data));
+			});
+
+			getDailyIncome(account).then((data) => {
+				// console.log(data);
+				dispatch(setDailyIncome(data));
+			});
+
+			getDailyProfit(account).then((data) => {
+				// console.log(data);
+				dispatch(setDailyProfit(data));
 			});
 		}
 	}, [account, etherBalance, dispatch]);

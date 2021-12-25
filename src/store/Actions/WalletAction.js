@@ -5,6 +5,8 @@ import {
 	SET_TOTAL_BALANCE_ETH,
 	SET_TOTAL_BALANCE_USD,
 	SET_DAILY_EXPENDITURE,
+	SET_DAILY_INCOME,
+	SET_DAILY_PROFIT,
 } from "../constants/action-types";
 
 export const setAddress = (address) => {
@@ -40,6 +42,18 @@ export const setTotalBalanceUSD = (val) => {
 export const setDailyExpenditure = (val) => {
 	return {
 		type: SET_DAILY_EXPENDITURE,
+		payload: val,
+	};
+};
+export const setDailyIncome = (val) => {
+	return {
+		type: SET_DAILY_INCOME,
+		payload: val,
+	};
+};
+export const setDailyProfit = (val) => {
+	return {
+		type: SET_DAILY_PROFIT,
 		payload: val,
 	};
 };

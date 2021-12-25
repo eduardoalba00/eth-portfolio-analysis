@@ -5,6 +5,8 @@ import {
 	SET_TOTAL_BALANCE_ETH,
 	SET_TOTAL_BALANCE_USD,
 	SET_DAILY_EXPENDITURE,
+	SET_DAILY_INCOME,
+	SET_DAILY_PROFIT,
 } from "../constants/action-types";
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
 	total_balance_eth: 0,
 	total_balance_usd: 0,
 	daily_expenditure: 0,
+	daily_income: 0,
+	daily_profit: 0,
 };
 
 function WalletReducer(state = initialState, action) {
@@ -47,6 +51,16 @@ function WalletReducer(state = initialState, action) {
 			return {
 				...state,
 				daily_expenditure: action.payload,
+			};
+		case SET_DAILY_INCOME:
+			return {
+				...state,
+				daily_income: action.payload,
+			};
+		case SET_DAILY_PROFIT:
+			return {
+				...state,
+				daily_profit: action.payload,
 			};
 		default:
 			return state;

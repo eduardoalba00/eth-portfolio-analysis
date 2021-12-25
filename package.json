@@ -36,7 +36,8 @@
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "simplebar-react": "^2.3.6",
-    "web-vitals": "^2.1.2"
+    "web-vitals": "^2.1.2",
+    "web3-eth": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@iconify/icons-eva": "^1.1.0",
-    "@iconify/react": "^3.1.0"
+    "@iconify/react": "^3.1.0",
+    "web3": "^1.6.1"
   }
 }
