@@ -25,7 +25,7 @@ const TitleWrapper = styled("div")(({ theme }) => ({
 }));
 
 const ButtonWrapper = styled("div")(({ theme }) => ({
-	[theme.breakpoints.down("xs")]: {
+	[theme.breakpoints.down("sm")]: {
 		textAlign: "center",
 	},
 	[theme.breakpoints.up("md")]: {
