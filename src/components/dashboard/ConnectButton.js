@@ -22,8 +22,14 @@ import { getFloorTotal } from "../../utils/get-assets";
 const WalletButtonContainer = styled("div")({
 	display: "flex",
 	alignItems: "center",
-	backgroundColor: palette.secondary.main,
+	backgroundColor: palette.primary.beige,
+	border: "1px solid transparent",
 	borderRadius: shape.borderRadiusSm,
+	"&:hover": {
+		border: "1px solid",
+		borderColor: palette.primary.main,
+		boxShadow: "none",
+	},
 });
 
 const WalletButton = styled(Button)({
@@ -35,7 +41,7 @@ const WalletButton = styled(Button)({
 	"&:hover": {
 		backgroundColor: palette.primary.darker,
 		border: "1px solid",
-		borderColor: palette.secondary.main,
+		borderColor: palette.primary.main,
 		boxShadow: "none",
 	},
 });

@@ -22,7 +22,7 @@ export default function GlobalStyles() {
 				body: {
 					width: "100%",
 					height: "100%",
-					backgroundColor: theme.palette.primary.main,
+					backgroundColor: "white",
 				},
 				"#root": {
 					width: "100%",

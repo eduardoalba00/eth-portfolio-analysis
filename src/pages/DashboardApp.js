@@ -4,11 +4,8 @@ import { styled } from "@mui/material/styles";
 import palette from "../theme/palette";
 // components
 import Page from "../components/Page";
-import WalletBalance from "../components/dashboard/WalletBalance";
 import ConnectButton from "../components/dashboard/ConnectButton";
-import FloorTotal from "../components/dashboard/FloorTotal";
-import BalanceFloorSum from "../components/dashboard/BalanceFloorSum";
-import CollectionsSummary from "../components/dashboard/CollectionsSummary";
+import BalanceCard from "../components/dashboard/BalanceCard";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -37,15 +34,12 @@ export default function DashboardApp() {
 			<Container maxWidth="xl">
 				<HeaderContainer>
 					<TitleContainer>
-						<Typography
-							variant="h3"
-							color={palette.primary.contrastText}
-						>
+						<Typography variant="h3" color={"black"}>
 							Hi, Welcome back
 						</Typography>
 						<Typography
 							variant="subtitle1"
-							color={palette.primary.lighter}
+							color={palette.primary.light}
 							fontWeight={500}
 						>
 							{current_date}
@@ -57,17 +51,8 @@ export default function DashboardApp() {
 				</HeaderContainer>
 
 				<Grid container spacing={3}>
-					<Grid item xs={12} sm={6} md={4}>
-						<WalletBalance />
-					</Grid>
-					<Grid item xs={12} sm={6} md={4}>
-						<FloorTotal />
-					</Grid>
-					<Grid item xs={12} sm={6} md={4}>
-						<BalanceFloorSum />
-					</Grid>
-					<Grid item xs={12} sm={6} lg={8}>
-						<CollectionsSummary />
+					<Grid item xs={12} sm={12} md={12}>
+						<BalanceCard />
 					</Grid>
 				</Grid>
 			</Container>
