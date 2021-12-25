@@ -90,7 +90,7 @@ export default function ConnectButton() {
 				dispatch(setTotalFloor(floor_total));
 			});
 		}
-	}, [account, etherBalance]);
+	}, [account, etherBalance, dispatch]);
 
 	const connectButton = (
 		<ConnectButtonStyle variant="subtitle2" onClick={activateBrowserWallet}>

@@ -18,7 +18,7 @@ export function getCurrentDate(separator = " ") {
 	let date = newDate.getDate();
 	let month = newDate.getMonth();
 	let monthName = monthNames[month];
-	let year = newDate.getFullYear();
+	// let year = newDate.getFullYear();
 
 	return `${monthName} ${date}`;
 }
