@@ -39,25 +39,25 @@ export default function BalanceCard() {
 		{
 			icon: "fa-solid:wallet",
 			title: "Wallet Balance",
-			value: wallet_balance.toFixed(4),
+			value: wallet_balance ? wallet_balance.toFixed(4) : "-",
 			currency: "ETH",
 		},
 		{
 			icon: "cib:ethereum",
 			title: "Floor Total",
-			value: floor_total.toFixed(4),
+			value: floor_total ? floor_total.toFixed(4) : "-",
 			currency: "ETH",
 		},
 		{
 			icon: "fluent:money-calculator-24-filled",
 			title: "Total Balance",
-			value: total_balance_ETH.toFixed(4),
+			value: total_balance_ETH ? total_balance_ETH.toFixed(4) : "-",
 			currency: "ETH",
 		},
 		{
 			icon: "ant-design:dollar-circle-filled",
 			title: "Total Balance",
-			value: total_balance_USD.toFixed(2),
+			value: total_balance_USD ? total_balance_USD.toFixed(2) : "-",
 			currency: "USD",
 		},
 	];
