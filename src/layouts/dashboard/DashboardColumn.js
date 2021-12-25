@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import palette from "../../theme/palette";
 
 // ----------------------------------------------------------------------
-const DRAWER_WIDTH = 250;
+const DRAWER_WIDTH = 280;
 
 const RootStyle = styled("div")(({ theme }) => ({
 	[theme.breakpoints.up("lg")]: {
@@ -18,6 +18,8 @@ const RootStyle = styled("div")(({ theme }) => ({
 	borderRight: "1px solid",
 	borderColor: theme.palette.primary.darker,
 	backgroundColor: theme.palette.primary.darker,
+	borderRadius: theme.shape.borderRadiusMd,
+	margin: theme.spacing(2, 2.5),
 }));
 
 const AccountStyle = styled("div")(({ theme }) => ({
@@ -30,7 +32,7 @@ const AccountStyle = styled("div")(({ theme }) => ({
 }));
 // ----------------------------------------------------------------------
 
-export default function DashboardSidebar() {
+export default function DashboardColumn() {
 	return (
 		<RootStyle>
 			<Box sx={{ my: 5, mx: 2.5 }}>

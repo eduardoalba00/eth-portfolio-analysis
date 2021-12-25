@@ -1,7 +1,7 @@
 // material
 import { styled } from "@mui/material/styles";
 import DashboardApp from "../../pages/DashboardApp";
-import DashboardSidebar from "./DashboardSidebar";
+import DashboardColumn from "./DashboardColumn";
 
 // ----------------------------------------------------------------------
 
@@ -35,6 +35,7 @@ export default function DashboardLayout() {
 			<MainStyle>
 				<DashboardApp />
 			</MainStyle>
+			<DashboardColumn />
 		</RootStyle>
 	);
 }

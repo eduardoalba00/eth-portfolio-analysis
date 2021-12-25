@@ -1,6 +1,6 @@
 // material
 import { styled } from "@mui/material/styles";
-import { Card, FormControlUnstyledContext, Typography } from "@mui/material";
+import { Card, Grid, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 // theme
@@ -19,7 +19,7 @@ const RootStyle = styled(Card)(({ theme }) => ({
 const Column = styled("div")(({ theme }) => ({
 	display: "flex",
 	flexDirection: "column",
-	padding: "1rem",
+	padding: theme.spacing(1, 1),
 	textAlign: "left",
 }));
 
@@ -51,27 +51,33 @@ export default function BalanceCard() {
 	];
 	return (
 		<RootStyle>
-			{items.map((item, index) => {
-				return (
-					<Column key={index}>
-						<Icon icon={item.icon} width="3rem" />
-						<Typography
-							variant="subtitle1"
-							color={palette.secondary.darker}
-							sx={{ pt: 3 }}
-						>
-							{item.title}
-						</Typography>
-						<Typography variant="h3">{item.value}</Typography>
-						<Typography
-							variant="subtitle1"
-							color={palette.secondary.darker}
-						>
-							ETH
-						</Typography>
-					</Column>
-				);
-			})}
+			<Grid container spacing={2}>
+				{items.map((item, index) => {
+					return (
+						<Grid item xs={12} sm={6} md={4}>
+							<Column key={index}>
+								<Icon icon={item.icon} width="3rem" />
+								<Typography
+									variant="subtitle1"
+									color={palette.secondary.darker}
+									sx={{ pt: 3 }}
+								>
+									{item.title}
+								</Typography>
+								<Typography variant="h3">
+									{item.value}
+								</Typography>
+								<Typography
+									variant="subtitle1"
+									color={palette.secondary.darker}
+								>
+									ETH
+								</Typography>
+							</Column>
+						</Grid>
+					);
+				})}
+			</Grid>
 		</RootStyle>
 	);
 }
