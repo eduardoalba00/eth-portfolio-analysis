@@ -1,3 +1,4 @@
+import FadeIn from "react-fade-in/lib/FadeIn";
 // material
 import { Grid, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -61,19 +62,29 @@ export default function DashboardApp() {
 						</ButtonWrapper>
 					</Grid>
 					<Grid item xs={12} sm={12} md={12}>
-						<BalanceCard />
+						<FadeIn transitionDuration={2000}>
+							<BalanceCard />
+						</FadeIn>
 					</Grid>
 					<Grid item xs={12} sm={6} md={6}>
-						<DailyProfit />
+						<FadeIn transitionDuration={2000}>
+							<DailyProfit />
+						</FadeIn>
 					</Grid>
 					<Grid item xs={12} sm={6} md={6}>
-						<DailyExpenditure />
+						<FadeIn transitionDuration={2000}>
+							<DailyExpenditure />
+						</FadeIn>
 					</Grid>
 					<Grid item xs={12} sm={6} md={6}>
-						<WeeklyProfit />
+						<FadeIn transitionDuration={2000}>
+							<WeeklyProfit />
+						</FadeIn>
 					</Grid>
 					<Grid item xs={12} sm={6} md={6}>
-						<WeeklyExpenditure />
+						<FadeIn transitionDuration={2000}>
+							<WeeklyExpenditure />
+						</FadeIn>
 					</Grid>
 				</Grid>
 			</Container>
