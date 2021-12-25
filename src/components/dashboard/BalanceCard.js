@@ -54,8 +54,8 @@ export default function BalanceCard() {
 			<Grid container spacing={2}>
 				{items.map((item, index) => {
 					return (
-						<Grid item xs={12} sm={6} md={4}>
-							<Column key={index}>
+						<Grid item xs={12} sm={6} md={4} key={index}>
+							<Column>
 								<Icon icon={item.icon} width="3rem" />
 								<Typography
 									variant="subtitle1"

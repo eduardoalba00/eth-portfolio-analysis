@@ -16,7 +16,7 @@ function responsiveFontSizes({ sm, md, lg }) {
 	};
 }
 
-const FONT_PRIMARY = "Nexa";
+const FONT_PRIMARY = "Roboto Mono";
 
 const typography = {
 	fontFamily: FONT_PRIMARY,

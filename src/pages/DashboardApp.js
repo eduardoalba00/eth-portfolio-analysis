@@ -6,6 +6,7 @@ import palette from "../theme/palette";
 import Page from "../components/Page";
 import ConnectButton from "../components/dashboard/ConnectButton";
 import BalanceCard from "../components/dashboard/BalanceCard";
+import Profit from "../components/dashboard/Profit";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -53,6 +54,9 @@ export default function DashboardApp() {
 				<Grid container spacing={3}>
 					<Grid item xs={12} sm={12} md={12}>
 						<BalanceCard />
+					</Grid>
+					<Grid item xs={12} sm={6} md={6}>
+						<Profit />
 					</Grid>
 				</Grid>
 			</Container>
