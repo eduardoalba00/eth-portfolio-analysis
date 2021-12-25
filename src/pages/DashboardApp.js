@@ -7,6 +7,7 @@ import Page from "../components/Page";
 import ConnectButton from "../components/dashboard/ConnectButton";
 import BalanceCard from "../components/dashboard/BalanceCard";
 import Profit from "../components/dashboard/Profit";
+import Expenditure from "../components/dashboard/Expenditure";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -51,12 +52,15 @@ export default function DashboardApp() {
 					</ButtonContainer>
 				</HeaderContainer>
 
-				<Grid container spacing={3}>
+				<Grid container spacing={4}>
 					<Grid item xs={12} sm={12} md={12}>
 						<BalanceCard />
 					</Grid>
 					<Grid item xs={12} sm={6} md={6}>
 						<Profit />
+					</Grid>
+					<Grid item xs={12} sm={6} md={6}>
+						<Expenditure />
 					</Grid>
 				</Grid>
 			</Container>
