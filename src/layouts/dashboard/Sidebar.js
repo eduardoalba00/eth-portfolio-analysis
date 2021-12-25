@@ -5,7 +5,7 @@ import { styled } from "@mui/material/styles";
 import { Icon } from "@iconify/react";
 import { Box, Typography, Link, Drawer } from "@mui/material";
 // router
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 //theme
 import palette from "../../theme/palette";
 // components
@@ -37,9 +37,8 @@ const AccountStyle = styled("div")(({ theme }) => ({
 	overflow: "hidden",
 }));
 // ----------------------------------------------------------------------
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
-
+// const APPBAR_MOBILE = 64;
+// const APPBAR_DESKTOP = 92;
 // ----------------------------------------------------------------------
 
 Sidebar.propTypes = {
@@ -54,7 +53,7 @@ export default function Sidebar({ isOpenSidebar, onCloseSidebar }) {
 		if (isOpenSidebar) {
 			onCloseSidebar();
 		}
-	}, [pathname]);
+	}, [isOpenSidebar, onCloseSidebar, pathname]);
 
 	const renderContent = (
 		<Scrollbar
