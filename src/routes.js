@@ -1,19 +1,18 @@
 import { useRoutes } from "react-router-dom";
 // layouts
 import DashboardLayout from "./layouts/dashboard";
-//
-import Launch from "./pages/Launch";
+import LaunchLayout from "./layouts/launch";
 // ----------------------------------------------------------------------
 
 export default function Router() {
 	return useRoutes([
 		{
 			path: "/",
-			element: <DashboardLayout />,
+			element: <LaunchLayout />,
 		},
 		{
-			path: "/launch",
-			element: <Launch />,
+			path: "/dashboard",
+			element: <DashboardLayout />,
 		},
 	]);
 }
