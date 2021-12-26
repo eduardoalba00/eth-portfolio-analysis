@@ -31,10 +31,19 @@ const RootStyle = styled("div")(({ theme }) => ({
 const AccountStyle = styled("div")(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
+	color: "white",
 	padding: theme.spacing(1, 1),
 	borderRadius: theme.shape.borderRadiusSm,
-	backgroundColor: theme.palette.info.main,
+	backgroundColor: theme.palette.primary.darker,
 	overflow: "hidden",
+	border: "1px solid transparent",
+	transition: "1s",
+	"&:hover": {
+		backgroundColor: palette.secondary.main,
+		color: palette.secondary.contrastText,
+		border: "1px solid",
+		borderColor: palette.secondary.contrastText,
+	},
 }));
 // ----------------------------------------------------------------------
 // const APPBAR_MOBILE = 64;
@@ -69,23 +78,12 @@ export default function Sidebar({ isOpenSidebar, onCloseSidebar }) {
 			<Box sx={{ my: 5, mx: 2.5 }}>
 				<Link underline="none" href="http://twitter.com/BlocklameEth">
 					<AccountStyle>
-						<Icon
-							icon="mdi:twitter"
-							width="3rem"
-							style={{ color: "white" }}
-						/>
+						<Icon icon="mdi:twitter" width="3rem" />
 						<Box sx={{ ml: 2 }}>
-							<Typography
-								variant="subtitle2"
-								color={palette.primary.contrastText}
-							>
+							<Typography variant="subtitle2">
 								Blocklame.eth
 							</Typography>
-							<Typography
-								variant="body2"
-								color={palette.primary.contrastText}
-								sx={{ opacity: "75%" }}
-							>
+							<Typography variant="body2" sx={{ opacity: "75%" }}>
 								Creator
 							</Typography>
 						</Box>

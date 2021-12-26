@@ -35,8 +35,6 @@ const ButtonWrapper = styled("div")(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-const DELAY = 250;
-const DURATION = 2000;
 
 export default function DashboardApp() {
 	const current_date = getCurrentDate();

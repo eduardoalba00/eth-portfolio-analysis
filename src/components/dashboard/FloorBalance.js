@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import appleFilled from "@iconify/icons-ant-design/apple-filled";
 // material
 import { alpha, styled } from "@mui/material/styles";
 import { Card, Typography } from "@mui/material";
@@ -33,8 +32,6 @@ const IconWrapperStyle = styled("div")(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
-
-const TOTAL = 1352831;
 
 export default function AppNewUsers() {
 	const floor_total = useSelector((state) => state.Wallet.floor_total);

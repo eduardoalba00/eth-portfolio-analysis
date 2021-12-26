@@ -37,6 +37,7 @@ const WalletButtonContainer = styled("div")({
 	backgroundColor: palette.secondary.main,
 	border: "1px solid transparent",
 	borderRadius: shape.borderRadiusSm,
+	transition: "1s",
 	"&:hover": {
 		border: "1px solid",
 		borderColor: palette.primary.darker,
@@ -50,6 +51,7 @@ const WalletButton = styled(Button)({
 	borderRadius: shape.borderRadiusSm,
 	overflow: "hidden",
 	boxShadow: "none",
+	transition: "1s",
 	"&:hover": {
 		backgroundColor: palette.primary.darker,
 		border: "1px solid",
@@ -65,6 +67,7 @@ const ConnectButtonStyle = styled(Button)({
 	borderRadius: shape.borderRadiusSm,
 	overflow: "hidden",
 	boxShadow: "none",
+	transition: "1s",
 	"&:hover": {
 		backgroundColor: palette.secondary.main,
 		color: palette.secondary.contrastText,
