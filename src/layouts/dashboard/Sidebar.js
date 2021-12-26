@@ -31,18 +31,19 @@ const RootStyle = styled("div")(({ theme }) => ({
 const AccountStyle = styled("div")(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
-	color: "white",
+	color: theme.palette.secondary.contrastText,
 	padding: theme.spacing(1, 1),
 	borderRadius: theme.shape.borderRadiusSm,
-	backgroundColor: theme.palette.primary.darker,
+	backgroundColor: theme.palette.secondary.main,
 	overflow: "hidden",
-	border: "1px solid transparent",
+	border: "1px solid",
+	borderColor: theme.palette.primary.darker,
 	transition: "1s",
 	"&:hover": {
-		backgroundColor: palette.secondary.main,
-		color: palette.secondary.contrastText,
+		backgroundColor: palette.primary.darker,
+		color: palette.primary.contrastText,
 		border: "1px solid",
-		borderColor: palette.secondary.contrastText,
+		borderColor: palette.primary.darker,
 	},
 }));
 // ----------------------------------------------------------------------
