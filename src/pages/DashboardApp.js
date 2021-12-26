@@ -10,6 +10,7 @@ import WalletBalance from "../components/dashboard/WalletBalance";
 import FloorBalance from "../components/dashboard/FloorBalance";
 import TotalBalanceEth from "../components/dashboard/TotalBalanceEth";
 import TotalBalanceUSD from "../components/dashboard/TotalBalnceUSD";
+import PieChart from "../components/dashboard/PieChart";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -76,6 +77,9 @@ export default function DashboardApp() {
 					</Grid>
 					<Grid item xs={12} sm={6} md={8}>
 						<LineChart />
+					</Grid>
+					<Grid item xs={12} sm={6} md={4}>
+						<PieChart />
 					</Grid>
 				</Grid>
 			</Container>
