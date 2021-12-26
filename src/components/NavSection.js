@@ -41,7 +41,7 @@ const ListItemStyle = styled((props) => (
 		position: "absolute",
 		borderTopLeftRadius: 4,
 		borderBottomLeftRadius: 4,
-		backgroundColor: theme.palette.primary.main,
+		backgroundColor: theme.palette.success.main,
 	},
 }));
 
@@ -71,14 +71,14 @@ function NavItem({ item, active }) {
 	};
 
 	const activeRootStyle = {
-		color: "primary.darker",
+		color: "success.darker",
 		fontWeight: "fontWeightMedium",
-		bgcolor: theme.palette.secondary.main,
+		bgcolor: theme.palette.success.lighter,
 		"&:before": { display: "block" },
 	};
 
 	const activeSubStyle = {
-		color: "text.primary",
+		color: "success.primary",
 		fontWeight: "fontWeightMedium",
 	};
 
@@ -133,7 +133,7 @@ function NavItem({ item, active }) {
 													),
 												...(isActiveSub && {
 													transform: "scale(2)",
-													bgcolor: "primary.darker",
+													bgcolor: "success.darker",
 												}),
 											}}
 										/>

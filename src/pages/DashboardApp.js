@@ -1,4 +1,3 @@
-import FadeIn from "react-fade-in/lib/FadeIn";
 // material
 import { Grid, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -6,11 +5,11 @@ import palette from "../theme/palette";
 // components
 import Page from "../components/Page";
 import ConnectButton from "../components/dashboard/ConnectButton";
-import BalanceCard from "../components/dashboard/BalanceCard";
-import DailyProfit from "../components/dashboard/DailyProfit";
-import DailyExpenditure from "../components/dashboard/DailyExpenditure";
-import WeeklyProfit from "../components/dashboard/WeeklyProfit";
-import WeeklyExpenditure from "../components/dashboard/WeeklyExpenditure";
+import LineChart from "../components/dashboard/LineChart";
+import WalletBalance from "../components/dashboard/WalletBalance";
+import FloorBalance from "../components/dashboard/FloorBalance";
+import TotalBalanceEth from "../components/dashboard/TotalBalanceEth";
+import TotalBalanceUSD from "../components/dashboard/TotalBalnceUSD";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -63,42 +62,20 @@ export default function DashboardApp() {
 							<ConnectButton />
 						</ButtonWrapper>
 					</Grid>
-					<Grid item xs={12} sm={12} md={12}>
-						<FadeIn transitionDuration={DURATION} delay={DELAY}>
-							<BalanceCard />
-						</FadeIn>
+					<Grid item xs={12} sm={6} md={3}>
+						<WalletBalance />
 					</Grid>
-					<Grid item xs={12} sm={6} md={6}>
-						<FadeIn
-							transitionDuration={DURATION}
-							delay={DELAY + 250}
-						>
-							<DailyProfit />
-						</FadeIn>
+					<Grid item xs={12} sm={6} md={3}>
+						<FloorBalance />
 					</Grid>
-					<Grid item xs={12} sm={6} md={6}>
-						<FadeIn
-							transitionDuration={DURATION}
-							delay={DELAY + 250}
-						>
-							<DailyExpenditure />
-						</FadeIn>
+					<Grid item xs={12} sm={6} md={3}>
+						<TotalBalanceEth />
 					</Grid>
-					<Grid item xs={12} sm={6} md={6}>
-						<FadeIn
-							transitionDuration={DURATION}
-							delay={DELAY + 500}
-						>
-							<WeeklyProfit />
-						</FadeIn>
+					<Grid item xs={12} sm={6} md={3}>
+						<TotalBalanceUSD />
 					</Grid>
-					<Grid item xs={12} sm={6} md={6}>
-						<FadeIn
-							transitionDuration={DURATION}
-							delay={DELAY + 500}
-						>
-							<WeeklyExpenditure />
-						</FadeIn>
+					<Grid item xs={12} sm={6} md={8}>
+						<LineChart />
 					</Grid>
 				</Grid>
 			</Container>
