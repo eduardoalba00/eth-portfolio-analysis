@@ -9,12 +9,19 @@ import LineChart from "../components/dashboard/LineChart";
 import WalletBalance from "../components/dashboard/WalletBalance";
 import FloorBalance from "../components/dashboard/FloorBalance";
 import TotalBalanceEth from "../components/dashboard/TotalBalanceEth";
-import TotalBalanceUSD from "../components/dashboard/TotalBalnceUSD";
+import TotalBalanceUSD from "../components/dashboard/TotalBalanceUSD";
 import PieChart from "../components/dashboard/PieChart";
+import TwitterButton from "../components/dashboard/TwitterButton";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
 // ----------------------------------------------------------------------
+
+const FlexWrapper = styled("div")(({ theme }) => ({
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "start",
+}));
 
 const TitleWrapper = styled("div")(({ theme }) => ({
 	[theme.breakpoints.down("sm")]: {
@@ -43,18 +50,21 @@ export default function DashboardApp() {
 			<Container maxWidth="xl">
 				<Grid container spacing={4}>
 					<Grid item xs={12} sm={12} md={6}>
-						<TitleWrapper>
-							<Typography variant="h3" color={"black"}>
-								Blocklame Dashboard
-							</Typography>
-							<Typography
-								variant="subtitle1"
-								color={palette.primary.light}
-								fontWeight={500}
-							>
-								{current_date}
-							</Typography>
-						</TitleWrapper>
+						<FlexWrapper>
+							<TitleWrapper>
+								<Typography variant="h3" color={"black"}>
+									Blocklame Dashboard
+								</Typography>
+								<Typography
+									variant="subtitle1"
+									color={palette.primary.light}
+									fontWeight={500}
+								>
+									{current_date}
+								</Typography>
+							</TitleWrapper>
+							<TwitterButton />
+						</FlexWrapper>
 					</Grid>
 					<Grid item xs={12} sm={12} md={6}>
 						<ButtonWrapper>

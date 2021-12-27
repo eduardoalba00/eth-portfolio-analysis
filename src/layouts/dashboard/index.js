@@ -1,7 +1,6 @@
 // material
 import { styled } from "@mui/material/styles";
 import DashboardApp from "../../pages/DashboardApp";
-import Sidebar from "./Sidebar";
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +28,6 @@ const MainStyle = styled("div")(({ theme }) => ({
 export default function DashboardLayout() {
 	return (
 		<RootStyle>
-			<Sidebar />
 			<MainStyle>
 				<DashboardApp />
 			</MainStyle>
