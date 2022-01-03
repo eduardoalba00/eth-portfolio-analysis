@@ -11,7 +11,6 @@ import FloorBalance from "../components/dashboard/FloorBalance";
 import TotalBalanceEth from "../components/dashboard/TotalBalanceEth";
 import TotalBalanceUSD from "../components/dashboard/TotalBalanceUSD";
 import PieChart from "../components/dashboard/PieChart";
-import TwitterButton from "../components/dashboard/TwitterButton";
 //utils
 import { getCurrentDate } from "../utils/get-current-date";
 
@@ -63,7 +62,6 @@ export default function DashboardApp() {
 									{current_date}
 								</Typography>
 							</TitleWrapper>
-							<TwitterButton />
 						</FlexWrapper>
 					</Grid>
 					<Grid item xs={12} sm={12} md={6}>
